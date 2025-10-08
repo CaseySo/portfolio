@@ -30,3 +30,7 @@ nav a.current {
   color: white;
   font-weight: bold;
 }
+nav a:hover {
+  background-color: #ddd;
+  border-bottom: 4px solid var(--color-accent);
+}
