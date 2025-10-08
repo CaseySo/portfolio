@@ -32,8 +32,8 @@ nav a {
 }
 
 nav a.current {
-  background-color: #333;
-  color: white;
+  background-color:oklch(70% 0.15 250);
+  color: black;
   font-weight: bold;
   border-bottom: 4px solid var(--color-accent);
 }
