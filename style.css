@@ -7,3 +7,26 @@ body {
   margin-inline: max(1em, (100% - 100ch) / 2);
   padding: 1em
 }
+nav ul,
+nav li {
+  display: contents;
+}
+
+nav {
+  display: flex;
+}
+
+nav a {
+  flex: 1;
+  text-align: center;
+  padding: 1em;
+  text-decoration: none;
+  background: #f0f0f0;
+  color: black;
+}
+
+nav a.current {
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+}
