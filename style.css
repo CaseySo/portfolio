@@ -6,6 +6,8 @@ body {
   max-width: 100ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
   padding: 1em;
+  border: 2px solid #418cef;  
+  border-radius: 10px;
 }
 nav ul,
 nav li {
@@ -74,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 h1 {
-  color: #004aad;
+  color: #418cef;
   border-bottom: 2px solid var(--color-accent); 
   padding-bottom: 0.25em;
 }
