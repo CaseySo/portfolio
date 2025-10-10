@@ -63,6 +63,8 @@ form label {
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 1em;
   margin: 2em 0;
+  max-width: none;
+  width: 100%;
 }
 
 .projects article {
