@@ -62,13 +62,11 @@ form label {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
     gap: 2em;
-    margin: 2em 0;
-    width: 100%;
 }
 
 .projects article {
-    display: grid;
     grid-template-rows: subgrid;
+    grid-row: span 3;
     gap: 1em;
 }
 h1, h2, h3, h4, h5, h6 {
