@@ -5,8 +5,8 @@ body {
   font: 100%/1.5 system-ui;
   max-width: 100ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
-  padding: 1em
-  border 1px solid rgb(122, 178, 247);
+  padding: 1em;
+  border: 1px solid rgb(122, 178, 247);
   border-radius: 10px;
 }
 nav ul,
