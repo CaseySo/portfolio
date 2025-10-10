@@ -59,19 +59,15 @@ form label {
   grid-column: 1 / -1;
 }
 .projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-  gap: 1.5em;
-  margin: 2em 0;
-  width: 100vw; 
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 4fr));
 }
 
+.projects article {
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    gap: 1em;
+}
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
