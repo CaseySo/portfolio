@@ -7,7 +7,7 @@ body {
   margin-inline: max(1em, (100% - 100ch) / 2);
   padding: 1em;
   border: 2px solid #418cef;  
-  border-radius: 10px;
+  border-radius: 12px;
 }
 nav ul,
 nav li {
@@ -79,4 +79,7 @@ h1 {
   color: #418cef;
   border-bottom: 2px solid var(--color-accent); 
   padding-bottom: 0.25em;
+}
+section {
+  margin-bottom: 2em;
 }
