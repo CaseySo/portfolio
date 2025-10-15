@@ -44,7 +44,7 @@ nav a.current {
   border-bottom: 4px solid var(--color-accent);
 }
 nav a:hover {
-  background-color: oklch(70% 0.15 250);
+  background-color: oklch(72.844% 0.12865 248.531);
   color: canvastext;
   border-bottom: 4px solid var(--color-accent)
 }
