@@ -27,6 +27,7 @@ document.body.prepend(nav);
 
 for (let p of pages) {
   let url = p.url;
+  a.textContent = title;
   if (!url.startsWith('http')) {
         url = BASE_PATH + url;
     }
