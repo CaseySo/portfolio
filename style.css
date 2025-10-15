@@ -16,6 +16,7 @@ nav li {
 
 nav {
   display: flex;
+  background-color: canvas;
 }
 
 html {
@@ -30,7 +31,8 @@ nav a {
   padding: 1em;
   text-decoration: none;
   background: #f0f0f0;
-  color: canvas;
+  color: canvastext;
+  
 }
 
 nav a.current {
@@ -41,8 +43,8 @@ nav a.current {
 }
 nav a:hover {
   background-color: oklch(90% 0.1 250);
-  color: black;
-  border-bottom: 4px solid var(--color-accent);
+  color: canvastext;
+  border-bottom: 4px solid var(--color-accent)
 }
 input,
 textarea,
