@@ -39,7 +39,7 @@ nav a {
 
 nav a.current {
   background-color: color-mix(in oklch, var(--color-accent), canvas 80%);
-  color: white;
+  color: canvastext;
   font-weight: bold;
   border-bottom: 4px solid var(--color-accent);
 }
