@@ -84,7 +84,7 @@ section {
   margin-bottom: 2em;
 }
 html {
-  color-scheme: light dark;
+  color-scheme: dark;
   background-color: canvas;
   color: canvastext;
 }
