@@ -17,7 +17,7 @@ nav li {
 nav {
   display: flex;
   background-color: canvas;
-  --border-color: oklch(50% 10% 200 / 40%);
+  --border-color: #418cef66;;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -34,7 +34,7 @@ nav a {
   text-decoration: none;
   border-bottom-color: var(--border-color);
   background: canvas;
-color: canvastext;
+  color: canvastext;
 }
 
 nav a.current {
