@@ -6,7 +6,7 @@ body {
   max-width: 100ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
   padding: 1em;
-  border: 2px solid #9ecbff;  
+  border: 2px solid #6aaeff;  
   border-radius: 12px;
 }
 nav ul,
@@ -17,12 +17,12 @@ nav li {
 nav {
   display: flex;
   background-color: canvas;
-  --border-color: #418cef66;;
+  --border-color: #6aaeff;;
   border-bottom: 1px solid var(--border-color);
 }
 
 html {
-  --color-accent: #9ecbff;
+  --color-accent: #6aaeff;;
   accent-color: var(--color-accent);
 }
 
