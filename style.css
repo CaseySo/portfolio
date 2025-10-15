@@ -104,3 +104,21 @@ html {
 .color-scheme select {
   font-family: inherit;
 }
+button {
+  background-color: var(--color-accent);
+  color: white;
+  font: inherit;
+  border: none;
+  border-radius: 8px;
+  padding: 1em 2em;    
+  font-size: 1.1rem;   
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  display: block;
+  margin: 1.5em auto;  
+}
+
+button:hover {
+  background-color: color-mix(in oklch, var(--color-accent), black 15%);
+  transform: scale(1.05);  
+}
