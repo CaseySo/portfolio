@@ -30,13 +30,11 @@ nav a {
   text-align: center;
   padding: 1em;
   text-decoration: none;
-  background: canvas;
-  color: canvastext;
-  
+  border-bottom-color: var(--border-color);
 }
 
 nav a.current {
-  background-color:oklch(70% 0.15 250);
+  background-color:color-mix(in oklch, oklch(70% 0.15 250), canvas 85%);
   color: white;
   font-weight: bold;
   border-bottom: 4px solid var(--color-accent);
