@@ -84,12 +84,12 @@ section {
   margin-bottom: 2em;
 }
 html {
-  color-scheme: dark;
+  color-scheme: light dark;
   background-color: canvas;
   color: canvastext;
 }
 nav {
-  --border-color: oklch(50% 10% 200 / 40%);
+  --border-color: canvas;
   border-bottom: 1px solid var(--border-color);
 }
 nav a:hover {
