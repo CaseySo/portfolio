@@ -17,6 +17,8 @@ nav li {
 nav {
   display: flex;
   background-color: canvas;
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom: 1px solid var(--border-color);
 }
 
 html {
@@ -31,10 +33,12 @@ nav a {
   padding: 1em;
   text-decoration: none;
   border-bottom-color: var(--border-color);
+  background: canvas;
+color: canvastext;
 }
 
 nav a.current {
-  background-color:color-mix(in oklch, oklch(70% 0.15 250), canvas 85%);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 80%);
   color: white;
   font-weight: bold;
   border-bottom: 4px solid var(--color-accent);
