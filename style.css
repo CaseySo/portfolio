@@ -30,7 +30,7 @@ nav a {
   padding: 1em;
   text-decoration: none;
   background: #f0f0f0;
-  color: black;
+  color: canvas;
 }
 
 nav a.current {
@@ -89,7 +89,7 @@ html {
   color: canvastext;
 }
 nav {
-  --border-color: canvas;
+  --border-color: oklch(50% 10% 200 / 40%);
   border-bottom: 1px solid var(--border-color);
 }
 nav a:hover {
