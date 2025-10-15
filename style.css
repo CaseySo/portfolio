@@ -6,7 +6,7 @@ body {
   max-width: 100ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
   padding: 1em;
-  border: 2px solid #418cef;  
+  border: 2px solid #9ecbff;  
   border-radius: 12px;
 }
 nav ul,
@@ -22,7 +22,7 @@ nav {
 }
 
 html {
-  --color-accent: #418cef;
+  --color-accent: #9ecbff;
   accent-color: var(--color-accent);
 }
 
