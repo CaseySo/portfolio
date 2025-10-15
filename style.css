@@ -92,13 +92,6 @@ html {
   background-color: canvas;
   color: canvastext;
 }
-nav {
-  --border-color: oklch(50% 10% 200 / 40%);
-  border-bottom: 1px solid var(--border-color);
-}
-nav a:hover {
-  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-}
 .color-scheme {
   position: absolute;
   top: 1rem;
