@@ -81,6 +81,11 @@ select.addEventListener('input', function (event) {
   localStorage.colorScheme = scheme;
   console.log('color scheme changed to', scheme);
 });
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+  if (localStorage.colorScheme === "light dark") {
+    setColorScheme("light dark");
+  }
+});
 
 const form = document.querySelector("form");
 
