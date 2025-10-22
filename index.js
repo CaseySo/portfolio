@@ -1,7 +1,13 @@
-import { fetchJSON, renderProjects, fetchGithubData } from './global.js';
-const projects = await fetchJSON('./lib/projects.json');
-const latestProjects = projects.slice(0, 3);
-const projectsContainer = document.querySelector('.projects');
-<div class="projects"></div>
-renderProjects(latestProjects, projectsContainer, 'h2');
-<script src="index.js" type="module" defer></script>
+import { fetchJSON, renderProjects } from './global.js';
+
+async function loadLatestProjects() {
+  const projects = await fetchJSON('./lib/projects.json');
+  if (!projects) {
+    console.error("No project data found");
+    return;
+  }
+  const latestProjects = projects.slice(0, 3);
+  const projectsContainer = document.querySelector('.projects');
+  renderProjects(latestProjects, projectsContainer, 'h2');
+}
+loadLatestProjects();
