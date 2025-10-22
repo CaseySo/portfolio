@@ -1,17 +1,3 @@
-import { fetchJSON, renderProjects } from './global.js';
-
-async function loadLatestProjects() {
-  const projects = await fetchJSON('./lib/projects.json');
-  if (!projects) {
-    console.error("No project data found");
-    return;
-  }
-  const latestProjects = projects.slice(0, 3);
-  const projectsContainer = document.querySelector('.projects');
-  renderProjects(latestProjects, projectsContainer, 'h2');
-}
-loadLatestProjects();
-
 import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
 
 async function loadLatestProjects() {
@@ -20,15 +6,22 @@ async function loadLatestProjects() {
     console.error("No project data found");
     return;
   }
+
   const latestProjects = projects.slice(0, 3);
   const projectsContainer = document.querySelector('.projects');
+  if (!projectsContainer) {
+    console.error("Projects container not found");
+    return;
+  }
+
   renderProjects(latestProjects, projectsContainer, 'h2');
 }
 
 async function loadGitHubStats() {
-  const githubData = await fetchGitHubData('your-username'); // 👈 replace this
-  const profileStats = document.querySelector('#profile-stats');
+  const githubData = await fetchGitHubData('CaseySo'); 
+  console.log("GitHub data:", githubData);
 
+  const profileStats = document.querySelector('#profile-stats');
   if (profileStats && githubData) {
     profileStats.innerHTML = `
       <h2>GitHub Stats</h2>
