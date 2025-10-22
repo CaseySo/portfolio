@@ -9,19 +9,13 @@ async function loadLatestProjects() {
 
   const latestProjects = projects.slice(0, 3);
   const projectsContainer = document.querySelector('.projects');
-  if (!projectsContainer) {
-    console.error("Projects container not found");
-    return;
-  }
-
   renderProjects(latestProjects, projectsContainer, 'h2');
 }
 
 async function loadGitHubStats() {
-  const githubData = await fetchGitHubData('CaseySo'); 
-  console.log("GitHub data:", githubData);
-
+  const githubData = await fetchGitHubData('CaseySo'); // 👈 your username here
   const profileStats = document.querySelector('#profile-stats');
+
   if (profileStats && githubData) {
     profileStats.innerHTML = `
       <h2>GitHub Stats</h2>
