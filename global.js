@@ -113,6 +113,11 @@ export async function fetchJSON(url) {
     console.error('Error fetching or parsing JSON data:', error);
   }
 }
+if (!response.ok) {
+  throw new Error(`Failed to fetch projects: ${response.statusText}`);
+}
+const data = await response.json();
+return data;
 
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   if (!Array.isArray(projects) || !containerElement) {
