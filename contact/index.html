@@ -36,7 +36,7 @@
     const form = document.querySelector("form");
 
     form?.addEventListener("submit", function(event) {
-      event.preventDefault(); // stop normal form submission
+      event.preventDefault(); 
 
       const data = new FormData(form);
       const params = [];
@@ -48,7 +48,7 @@
       const query = params.join("&");
       const url = `${form.action}?${query}`;
 
-      location.href = url; // open email client
+      location.href = url; 
     });
   </script>
 </body>
