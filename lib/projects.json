@@ -12,62 +12,62 @@
         "description": "This project explores how national wealth and health expenditure impact women’s health outcomes across countries in 2021. By comparing nations with different GDP levels, it reveals global inequalities in access to healthcare and highlights the link between investment in health and women’s quality of life."
     },
     {
-        "title": "Ea cumque tempore iusto.",
+        "title": "Medicare Optmiization",
         "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Debitis reprehenderit, adipisci provident reiciendis atque recusandae nam quisquam vel laudantium quas nobis impedit obcaecati iste ipsum asperiores harum odio eius accusantium consequatur? Molestiae labore nisi animi unde, quod nemo."
+        "image": "images/medicare.png",
+        "description": "Optimized data workflows for Kaiser Permanente’s Medicare Bid process by automating validation and streamlining SQL and Python pipelines. Improved efficiency, accuracy, and transparency in key actuarial datasets supporting pricing and forecasting decisions."
     },
     {
-        "title": "Non voluptatibus illum fugiat?",
-        "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Deleniti, et officiis! Laudantium dolores laborum, sunt aliquam cum mollitia ducimus tempora neque ipsum commodi placeat ratione nihil aperiam laboriosam consequuntur ut numquam blanditiis illo tempore fugit tenetur nesciunt modi!"
+        "title": "An Analysis of Crash Severity Across Urban and Rural Environments",
+        "year": "2023",
+        "image": "images/crash.png",
+        "description": "This project examines the relationship between road type and crash severity. While urban roads experience a higher total number of crashes compared to rural roads, we aim to determine whether the percentage of fatal crashes differs significantly between the two. By comparing the proportion of fatal crashes relative to total crashes in each setting, this analysis explores whether higher crash counts in urban areas are associated with greater or lesser crash severity."
     },
     {
-        "title": "Ipsum eius illo doloremque.",
-        "year": "2025",
+        "title": "Placeholder 1",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Numquam aliquid voluptates, nobis adipisci corporis dicta blanditiis enim laboriosam, accusantium distinctio dolorum at atque explicabo totam ratione labore nam assumenda in eaque itaque. Obcaecati vel doloribus odio alias assumenda?"
     },
     {
-        "title": "Laudantium, placeat. Pariatur, totam?",
-        "year": "2025",
+        "title": "Placeholder 2",
+        "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Eum nostrum tempore sunt itaque officiis tempora, adipisci laborum sapiente debitis aut autem veniam quod illum alias dignissimos placeat iusto corporis voluptate? Possimus omnis illo, obcaecati molestias ullam maiores repudiandae."
     },
     {
-        "title": "Illum incidunt explicabo suscipit.",
+        "title": "Placeholder 3",
         "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Quisquam quia odio aut saepe corrupti! Quos rem vero alias ex minus provident maiores? Consequatur maxime rerum officia eaque quo amet, dolor cupiditate voluptas iusto fugit sequi quidem numquam laborum."
     },
     {
-        "title": "Quia, unde beatae. Quos.",
+        "title": "Placeholder 4",
         "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Dolores debitis maiores nisi, rerum fugiat laboriosam aut sed blanditiis sequi quaerat quo praesentium impedit magni aliquid illo? Molestias repellat recusandae sunt expedita obcaecati quis deleniti incidunt nemo rerum qui."
     },
     {
-        "title": "Laborum vel iste ducimus!",
-        "year": "2025",
+        "title": "Placeholder 5",
+        "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Qui ab atque placeat animi a. Delectus aut, neque laborum eius doloribus unde, accusamus asperiores amet modi exercitationem velit animi, vitae similique laudantium provident magni beatae earum voluptatem facere necessitatibus."
     },
     {
-        "title": "Fuga, unde voluptatem. Voluptates?",
-        "year": "2025",
+        "title": "Placeholder 6",
+        "year": "2022",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Praesentium officia non doloremque! Fuga, natus impedit nam aliquam ut incidunt rem dignissimos repudiandae vero fugiat error sit consequuntur ratione mollitia, quasi tempora accusantium nemo officia culpa a similique veritatis."
     },
     {
-        "title": "Corporis beatae ut consectetur!",
-        "year": "2025",
+        "title": "Placeholder 7",
+        "year": "2021",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Harum eveniet quam doloremque ipsum, accusamus eligendi corrupti veniam non, expedita aspernatur aliquam nisi, et quibusdam iste nobis alias cumque tenetur enim. Similique voluptates, enim ducimus ullam praesentium nobis quo!"
     },
     {
-        "title": "Quisquam a recusandae commodi!",
-        "year": "2025",
+        "title": "Placeholder 8",
+        "year": "2022",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Nulla cum nesciunt minus. Incidunt, veritatis! Sit quos, amet explicabo ratione iure dolore accusamus inventore. Modi, assumenda. Amet dolorum eos nam esse labore omnis dignissimos, recusandae repellendus dolores voluptate dolor?"
     }
