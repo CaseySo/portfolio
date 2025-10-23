@@ -6,11 +6,14 @@ async function loadProjects() {
     console.error("No project data found");
     return;
   }
+
   const title = document.querySelector('.projects-title');
   if (title) {
     title.textContent = `Projects (${projects.length})`;
   }
+
   const projectsContainer = document.querySelector('.projects');
   renderProjects(projects, projectsContainer, 'h2');
 }
+
 loadProjects();
