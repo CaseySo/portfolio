@@ -1,7 +1,11 @@
 import { fetchJSON, renderProjects } from '../global.js';
 
 async function loadProjects() {
-  const projects = await fetchJSON('../lib/projects.json');
+  // detect where you are
+  const isProjectsPage = location.pathname.includes('/projects/');
+  const jsonPath = isProjectsPage ? '../lib/projects.json' : 'lib/projects.json';
+
+  const projects = await fetchJSON(jsonPath);
   if (!projects) {
     console.error("No project data found");
     return;
