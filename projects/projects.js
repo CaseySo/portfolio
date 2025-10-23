@@ -7,13 +7,21 @@ async function loadProjects() {
     return;
   }
 
+  const isProjectsPage = location.pathname.includes('/projects/');
+  const adjustedProjects = projects.map(project => {
+    if (isProjectsPage && project.image.startsWith('images/')) {
+      return { ...project, image: `../${project.image}` };
+    }
+    return project;
+  });
+
   const title = document.querySelector('.projects-title');
   if (title) {
     title.textContent = `Projects (${projects.length})`;
   }
 
   const projectsContainer = document.querySelector('.projects');
-  renderProjects(projects, projectsContainer, 'h2');
+  renderProjects(adjustedProjects, projectsContainer, 'h2');
 }
 
 loadProjects();
