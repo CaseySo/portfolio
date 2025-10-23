@@ -1,6 +1,5 @@
 import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
 
-// --- Load first 3 projects ---
 async function loadHomeProjects() {
   const projects = await fetchJSON('./lib/projects.json');
   if (!projects) return;
@@ -9,7 +8,7 @@ async function loadHomeProjects() {
   const container = document.querySelector('.projects');
   renderProjects(latestProjects, container, 'h3');
 }
--
+
 async function loadGitHubStats() {
   const statsContainer = document.getElementById('profile-stats');
   if (!statsContainer) return;
