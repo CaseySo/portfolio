@@ -5,22 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CASEY_SO: Personal site and portfolio</title>
   <link rel="stylesheet" href="style.css">
-  <script src="global.js" type="module"></script>
-  <script src="index.js" type="module" defer></script>
 </head>
 
 <body>
-  <!-- <nav>
-    <a class="current" href="index.html">Home</a>
-    <a href="projects/index.html">Projects</a>
-    <a href="contact/index.html">Contact</a>
-    <a href="https://github.com/CaseySo" target="_blank">GitHub</a>
-    <a href="resume.html">Resume</a>
-  </nav> -->
-
-  <h1>Casey So 0</h1>
-  <p>I am a second-year transfer student at UC San Diego from the Bay Area. 
-     I enjoy swimming in my free time. Enjoy this photo of my dog.</p>
+  <h1>Casey So 2</h1>
+  <p>
+    I am a second-year transfer student at UC San Diego from the Bay Area. 
+    I enjoy swimming in my free time. Enjoy this photo of my dog.
+  </p>
 
   <img src="images/coby.jpg" alt="A cute dog" />
 
@@ -30,5 +22,10 @@
   <div class="projects">
     <!-- Dynamically added content will appear here -->
   </div>
+
+  <!-- ✅ Move your scripts to the bottom so everything is loaded before JS runs -->
+  <script type="module" src="global.js"></script>
+  <script type="module" src="index.js"></script>
 </body>
 </html>
+

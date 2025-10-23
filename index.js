@@ -13,7 +13,7 @@ async function loadGitHubStats() {
   const statsContainer = document.getElementById('profile-stats');
   if (!statsContainer) return;
 
-  const githubData = await fetchGitHubData('CaseySo'); 
+  const githubData = await fetchGitHubData('CaseySo');
   if (!githubData) {
     statsContainer.innerHTML = '<p>Unable to load GitHub data.</p>';
     return;

@@ -20,7 +20,7 @@
     {
         "title": "An Analysis of Crash Severity Across Urban and Rural Environments",
         "year": "2023",
-        "image": "images/crash.png",
+        "image": "../images/crash.png",
         "description": "This project analyzes how crash severity differs between urban and rural roads. While urban areas have more total crashes, we examine whether the proportion of fatal crashes is higher or lower compared to rural roads."
     },
     {
