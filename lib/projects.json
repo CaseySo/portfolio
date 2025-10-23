@@ -3,13 +3,13 @@
         "title": "Recipe Length Analysis",
         "year": "2025",
         "image": "images/reciepe_length.jpg",
-        "description": "This project focuses on exploring the relationship between a recipe’s cooking time and its user rating."
+        "description": "This project analyzes how a recipe’s cooking time relates to its user rating, uncovering whether longer, more complex dishes receive higher praise than quick, simple ones. Using Food.com recipe data from 2008–2018, the study explores two key relationships: the correlation between cooking time and user satisfaction, and the connection between cooking time and the number of recipe steps. By applying statistical methods and linear regression, this project reveals patterns that shed light on how time and effort influence perceived recipe quality."
     },
     {
-        "title": "Recipe Length Analysis",
-        "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Quaerat dolores assumenda quos odio id nihil quam esse enim, facilis, praesentium excepturi. Beatae laborum ipsam nemo ducimus odio voluptas, possimus quibusdam, rem eligendi nesciunt, quas praesentium corporis! Cumque, quas."
+        "title": "RHealth, Wealth, and Women: How GDP Shapes Women’s Well-Being Around the World",
+        "year": "2024",
+        "image": "images/health_spending.png",
+        "description": "This project explores how national wealth and health expenditure impact women’s health outcomes across countries in 2021. By comparing nations with different GDP levels, it reveals global inequalities in access to healthcare and highlights the link between investment in health and women’s quality of life."
     },
     {
         "title": "Ea cumque tempore iusto.",
