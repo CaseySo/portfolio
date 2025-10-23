@@ -128,15 +128,21 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     return;
   }
 
-  containerElement.innerHTML = ''; 
+  containerElement.innerHTML = ''; // clear old content
+
+  const inProjectsFolder = location.pathname.includes('/projects');
 
   for (let project of projects) {
     const article = document.createElement('article');
+
+    const imgSrc = inProjectsFolder ? `../${project.image}` : project.image;
+
     article.innerHTML = `
       <${headingLevel}>${project.title}</${headingLevel}>
-      <img src="${project.image}" alt="${project.title}" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <img src="${imgSrc}" alt="${project.title}">
       <p>${project.description}</p>
     `;
+
     containerElement.appendChild(article);
   }
 
@@ -144,6 +150,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     containerElement.innerHTML = '<p>No projects found.</p>';
   }
 }
+
 
 
 export async function fetchGitHubData(username) {
