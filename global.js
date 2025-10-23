@@ -135,7 +135,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 
     article.innerHTML = `
       <${headingLevel}>${project.title}</${headingLevel}>
-      <img src="../${project.image}" alt="${project.title}">
+      <img src="${project.image}" alt="${project.title}">
       <p>${project.description}</p>
     `;
 
@@ -146,7 +146,6 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     containerElement.innerHTML = '<p>No projects found.</p>';
   }
 }
-
 
 export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);
