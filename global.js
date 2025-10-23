@@ -128,14 +128,14 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     return;
   }
 
-  containerElement.innerHTML = ''; // clear old content
+  containerElement.innerHTML = ''; 
 
   for (let project of projects) {
     const article = document.createElement('article');
 
     article.innerHTML = `
       <${headingLevel}>${project.title}</${headingLevel}>
-      <img src="${project.image}" alt="${project.title}">
+      <img src="../${project.image}" alt="${project.title}">
       <p>${project.description}</p>
     `;
 
@@ -146,6 +146,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     containerElement.innerHTML = '<p>No projects found.</p>';
   }
 }
+
 
 export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);
