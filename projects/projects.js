@@ -1,79 +1,104 @@
 import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
+let allProjects = [];
+let currentFilter = null;
+
 async function loadProjects() {
   const isProjectsPage = location.pathname.includes('/projects/');
   const jsonPath = isProjectsPage ? '../lib/projects.json' : 'lib/projects.json';
 
-  const projects = await fetchJSON(jsonPath);
-  if (!projects) return;
-
-  const title = document.querySelector('.projects-title');
-  if (title) {
-    title.textContent = `Projects (${projects.length})`;
+  allProjects = await fetchJSON(jsonPath);
+  if (!allProjects) {
+    console.error("No project data found");
+    return;
   }
 
-  const container = document.querySelector('.projects');
-  renderProjects(projects, container, 'h2');
+  const title = document.querySelector('.projects-title');
+  if (title) title.textContent = `Projects (${allProjects.length})`;
 
-  renderPieChart(projects);
+  const projectsContainer = document.querySelector('.projects');
+  renderProjects(allProjects, projectsContainer, 'h2');
+
+  setupSearch();
+  renderProjectsChart(allProjects);
 }
-loadProjects();
 
-const svg = d3.select('#projects-plot');
-const legend = d3.select('.legend');
+function setupSearch() {
+  const searchInput = document.getElementById('project-search');
+  if (!searchInput) return;
 
-function renderPieChart(projects) {
+  searchInput.addEventListener('input', e => {
+    const term = e.target.value.toLowerCase();
+    const filtered = allProjects.filter(p =>
+      p.title.toLowerCase().includes(term) ||
+      p.description.toLowerCase().includes(term)
+    );
+    renderProjects(filtered, document.querySelector('.projects'), 'h2');
+    renderProjectsChart(filtered);
+  });
+}
+
+function renderProjectsChart(projects) {
+  const svg = d3.select('#projects-plot');
+  const legend = d3.select('.legend');
   svg.selectAll('*').remove();
   legend.selectAll('*').remove();
 
-  const rolledData = d3.rollups(projects, v => v.length, d => d.year);
-  const data = rolledData.map(([year, count]) => ({ label: year, value: count }));
+  const counts = d3.rollups(projects, v => v.length, d => d.year)
+    .map(([year, count]) => ({ year, count }));
 
-  const pie = d3.pie().value(d => d.value);
-  const arcData = pie(data);
+  if (counts.length === 0) return;
+
+  const pie = d3.pie().value(d => d.count);
   const arc = d3.arc().innerRadius(0).outerRadius(50);
   const colors = d3.scaleOrdinal(d3.schemeTableau10);
+  const pieData = pie(counts);
 
-  arcData.forEach((d, i) => {
-    svg.append('path')
-      .attr('d', arc(d))
-      .attr('fill', colors(i))
-      .attr('data-year', d.data.label)
-      .attr('class', 'slice')
-      .attr('stroke', 'white')
-      .attr('stroke-width', 1);
-  });
+  svg.selectAll('path')
+    .data(pieData)
+    .enter()
+    .append('path')
+    .attr('d', arc)
+    .attr('fill', (d, i) => colors(i))
+    .attr('stroke', 'white')
+    .attr('stroke-width', 1.5)
+    .attr('data-year', d => d.data.year)
+    .on('mouseover', function () {
+      d3.select(this).attr('filter', 'drop-shadow(0 0 5px white)');
+    })
+    .on('mouseout', function () {
+      d3.select(this).attr('filter', null);
+    });
 
-  data.forEach((d, i) => {
-    legend.append('li')
-      .attr('style', `--color:${colors(i)}`)
-      .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
-  });
+  const legendItems = legend.selectAll('li')
+    .data(counts)
+    .enter()
+    .append('li')
+    .attr('style', (d, i) => `--color:${colors(i)}`)
+    .html(d => `<span class="swatch"></span>${d.year} <em>(${d.count})</em>`)
+    .on('click', (event, d) => handleLegendClick(d.year))
+    .on('mouseover', function () {
+      d3.select(this).classed('hover', true);
+    })
+    .on('mouseout', function () {
+      d3.select(this).classed('hover', false);
+    });
 }
 
-const searchInput = document.querySelector('.searchBar');
+function handleLegendClick(year) {
+  const projectsContainer = document.querySelector('.projects');
 
-searchInput?.addEventListener('input', async (event) => {
-  const query = event.target.value.toLowerCase();
-  const projects = await fetchJSON('../lib/projects.json');
+  if (currentFilter === year) {
+    renderProjects(allProjects, projectsContainer, 'h2');
+    renderProjectsChart(allProjects);
+    currentFilter = null;
+  } else {
+    const filtered = allProjects.filter(p => p.year === year);
+    renderProjects(filtered, projectsContainer, 'h2');
+    renderProjectsChart(filtered);
+    currentFilter = year;
+  }
+}
 
-  const filtered = projects.filter(p =>
-    Object.values(p).join(' ').toLowerCase().includes(query)
-  );
-
-  renderProjects(filtered, document.querySelector('.projects'), 'h2');
-  renderPieChart(filtered);
-});
-
-svg.on('click', async (event) => {
-  const clicked = event.target.closest('.slice');
-  if (!clicked) return;
-
-  const year = clicked.getAttribute('data-year');
-  const projects = await fetchJSON('../lib/projects.json');
-  const filtered = projects.filter(p => p.year === year);
-
-  renderProjects(filtered, document.querySelector('.projects'), 'h2');
-  renderPieChart(filtered);
-});
+loadProjects();
