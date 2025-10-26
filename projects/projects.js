@@ -2,34 +2,25 @@ import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7/+esm';
 
 let projects = [];
-let filteredProjects = [];
 let selectedIndex = -1;
 
 const svg = d3.select('#projects-plot');
 const legend = d3.select('.legend');
 const projectsContainer = document.querySelector('.projects');
-const title = document.querySelector('.projects-title');
-const searchInput = document.querySelector('.searchBar');
 
 async function loadProjects() {
-  projects = await fetchJSON('../lib/projects.json');
-  if (!projects) return;
-
-  filteredProjects = projects;
-  updateProjectsCount(filteredProjects.length);
-  renderProjects(filteredProjects, projectsContainer, 'h2');
-  renderPieChart(filteredProjects);
+  const data = await fetchJSON('../lib/projects.json');
+  if (!data) return;
+  projects = data;
+  renderProjects(projects, projectsContainer, 'h2');
+  renderPieChart(projects);
 }
 
-function updateProjectsCount(count) {
-  if (title) title.textContent = `Projects (${count})`;
-}
-
-function renderPieChart(dataProjects) {
+function renderPieChart(projectsGiven) {
   svg.selectAll('*').remove();
   legend.selectAll('*').remove();
 
-  const rolledData = d3.rollups(dataProjects, v => v.length, d => d.year);
+  const rolledData = d3.rollups(projectsGiven, v => v.length, d => d.year);
   const data = rolledData.map(([year, count]) => ({ label: year, value: count }));
 
   const width = 300, height = 300, radius = 120;
@@ -43,13 +34,26 @@ function renderPieChart(dataProjects) {
     .append('g')
     .attr('transform', `translate(${width / 2}, ${height / 2})`);
 
-  g.selectAll('path')
+  const paths = g
+    .selectAll('path')
     .data(pie(data))
     .join('path')
     .attr('d', arc)
     .attr('fill', (_, i) => colors(i))
-    .attr('class', 'wedge')
-    .on('click', (_, i) => handleClick(i, data))
+    .attr('class', (_, i) => (i === selectedIndex ? 'selected' : null))
+    .on('click', (_, i) => {
+      selectedIndex = selectedIndex === i ? -1 : i;
+
+      // Update classes on paths
+      g.selectAll('path').attr('class', (_, idx) =>
+        idx === selectedIndex ? 'selected' : null
+      );
+
+      // Update classes on legend items
+      legend.selectAll('li').attr('class', (_, idx) =>
+        idx === selectedIndex ? 'selected' : null
+      );
+    })
     .append('title')
     .text(d => `${d.data.label}: ${d.data.value}`);
 
@@ -57,8 +61,18 @@ function renderPieChart(dataProjects) {
     .selectAll('li')
     .data(data)
     .join('li')
-    .attr('class', 'legend-item')
-    .on('click', (_, i) => handleClick(i, data));
+    .attr('class', (_, i) => (i === selectedIndex ? 'selected' : null))
+    .on('click', (_, i) => {
+      selectedIndex = selectedIndex === i ? -1 : i;
+
+      g.selectAll('path').attr('class', (_, idx) =>
+        idx === selectedIndex ? 'selected' : null
+      );
+
+      legend.selectAll('li').attr('class', (_, idx) =>
+        idx === selectedIndex ? 'selected' : null
+      );
+    });
 
   legendItems
     .append('span')
@@ -69,37 +83,5 @@ function renderPieChart(dataProjects) {
     .append('span')
     .text(d => `${d.label} (${d.value})`);
 }
-
-function handleClick(i, data) {
-  selectedIndex = selectedIndex === i ? -1 : i;
-
-  const wedges = d3.selectAll('.wedge');
-  const legendItems = d3.selectAll('.legend-item');
-
-  wedges.classed('selected', (_, idx) => idx === selectedIndex);
-  legendItems.classed('selected', (_, idx) => idx === selectedIndex);
-
-  if (selectedIndex === -1) {
-    filteredProjects = projects;
-  } else {
-    const selectedYear = data[selectedIndex].label;
-    filteredProjects = projects.filter(p => p.year === selectedYear);
-  }
-
-  renderProjects(filteredProjects, projectsContainer, 'h2');
-  updateProjectsCount(filteredProjects.length);
-  renderPieChart(filteredProjects);
-}
-
-searchInput.addEventListener('input', e => {
-  const query = e.target.value.toLowerCase();
-  const searched = projects.filter(p =>
-    Object.values(p).join(' ').toLowerCase().includes(query)
-  );
-  filteredProjects = searched;
-  renderProjects(searched, projectsContainer, 'h2');
-  updateProjectsCount(searched.length);
-  renderPieChart(searched);
-});
 
 loadProjects();

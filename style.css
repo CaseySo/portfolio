@@ -1,14 +1,12 @@
 body {
-  /* Set line height to 1.5 times the font size
-	   and use the OS’s UI font as the website font
-	 */
   font: 100%/1.5 system-ui;
   max-width: 100ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
   padding: 1em;
-  border: 2px solid #6aaeff;  
+  border: 2px solid #6aaeff;
   border-radius: 12px;
 }
+
 nav ul,
 nav li {
   display: contents;
@@ -17,15 +15,14 @@ nav li {
 nav {
   display: flex;
   background-color: canvas;
-  --border-color: #6aaeff;;
+  --border-color: #6aaeff;
   border-bottom: 1px solid var(--border-color);
 }
 
 html {
-  --color-accent: #6aaeff;;
+  --color-accent: #6aaeff;
   accent-color: var(--color-accent);
 }
-
 
 nav a {
   flex: 1;
@@ -43,16 +40,19 @@ nav a.current {
   font-weight: bold;
   border-bottom: 4px solid var(--color-accent);
 }
+
 nav a:hover {
   background-color: color-mix(in oklch, var(--color-accent), canvas 90%);
   color: canvastext;
-  border-bottom: 4px solid var(--color-accent)
+  border-bottom: 4px solid var(--color-accent);
 }
+
 input,
 textarea,
 button {
   font: inherit;
 }
+
 form {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -64,34 +64,40 @@ form label {
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
 }
+
 .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-    gap: 2em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 2em;
 }
 
 .projects article {
-    grid-template-rows: subgrid;
-    grid-row: span 3;
-    gap: 1em;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 1em;
 }
+
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
-h2{
+
+h2 {
   color: #418cef;
-  border-bottom: 2px solid var(--color-accent); 
+  border-bottom: 2px solid var(--color-accent);
   padding-bottom: 0.25em;
 }
+
 section {
   margin-bottom: 2em;
 }
+
 html {
   color-scheme: light dark;
   background-color: canvas;
   color: canvastext;
 }
+
 .color-scheme {
   position: absolute;
   top: 1rem;
@@ -104,6 +110,7 @@ html {
 .color-scheme select {
   font-family: inherit;
 }
+
 #profile-stats dl {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -120,12 +127,15 @@ html {
   margin: 0;
   grid-row: 2;
 }
+
 .projects img {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
   object-fit: contain;
 }
+
+/* --- PIE CHART & LEGEND LAYOUT --- */
 #projects-chart {
   display: flex;
   align-items: flex-start;
@@ -139,6 +149,7 @@ html {
   height: 300px;
 }
 
+/* --- LEGEND --- */
 .legend {
   display: flex;
   flex-direction: column;
@@ -173,7 +184,28 @@ html {
   box-shadow: 0 0 10px var(--color);
 }
 
-.wedge.selected {
+/* --- STEP 5.1: FADE OTHERS ON HOVER --- */
+svg:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+/* --- STEP 5.2: SELECTED WEDGE & LEGEND --- */
+path {
+  transition: 300ms;
+  cursor: pointer;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+}
+
+.selected:is(path) {
+  fill: var(--color);
   stroke: #000;
   stroke-width: 2px;
+}
+
+.legend .selected {
+  font-weight: bold;
+  color: oklch(60% 45% 0);
 }
