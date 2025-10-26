@@ -64,11 +64,11 @@ function renderPieChart(projectsGiven) {
 
         // 🔹 Filtering logic
         if (selectedIndex === -1) {
-          renderProjects(projects, projectsContainer, 'h2'); // show all
+          renderProjects(projects, projectsContainer, 'h2');
         } else {
           const year = data[selectedIndex].label;
           const filtered = projects.filter(p => String(p.year) === String(year));
-          renderProjects(filtered, projectsContainer, 'h2'); // show only that year
+          renderProjects(filtered, projectsContainer, 'h2');
         }
       })
     .append('title')
@@ -90,13 +90,13 @@ function renderPieChart(projectsGiven) {
 
       if (selectedIndex === -1) {
         renderProjects(projects, projectsContainer, 'h2');
-        updateProjectCount(projects);
       } else {
         const year = data[selectedIndex].label;
         const filtered = projects.filter(p => p.year === year);
         renderProjects(filtered, projectsContainer, 'h2');
-        updateProjectCount(filtered);
       }
+
+
     });
 
   legendItems
