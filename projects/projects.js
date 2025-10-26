@@ -52,25 +52,25 @@ function renderPieChart(projectsGiven) {
     .attr('fill', (_, i) => colors(i))
     .attr('class', (_, i) => (i === selectedIndex ? 'selected' : null))
     .on('click', (_, i) => {
-      selectedIndex = selectedIndex === i ? -1 : i;
-      g.selectAll('path').attr('class', (_, idx) =>
-        idx === selectedIndex ? 'selected' : null
-      );
-      legend.selectAll('li').attr('class', (_, idx) =>
-        idx === selectedIndex ? 'selected' : null
-      );
+        selectedIndex = selectedIndex === i ? -1 : i;
 
-      // Filter by year on click
-      if (selectedIndex === -1) {
-        renderProjects(projects, projectsContainer, 'h2');
-        updateProjectCount(projects);
-      } else {
-        const year = data[selectedIndex].label;
-        const filtered = projects.filter(p => p.year === year);
-        renderProjects(filtered, projectsContainer, 'h2');
-        updateProjectCount(filtered);
-      }
-    })
+        g.selectAll('path').attr('class', (_, idx) =>
+          idx === selectedIndex ? 'selected' : null
+        );
+
+        legend.selectAll('li').attr('class', (_, idx) =>
+          idx === selectedIndex ? 'selected' : null
+        );
+
+        // 🔹 Filtering logic
+        if (selectedIndex === -1) {
+          renderProjects(projects, projectsContainer, 'h2'); // show all
+        } else {
+          const year = data[selectedIndex].label;
+          const filtered = projects.filter(p => String(p.year) === String(year));
+          renderProjects(filtered, projectsContainer, 'h2'); // show only that year
+        }
+      })
     .append('title')
     .text(d => `${d.data.label}: ${d.data.value}`);
 
