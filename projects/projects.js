@@ -7,12 +7,22 @@ let selectedIndex = -1;
 const svg = d3.select('#projects-plot');
 const legend = d3.select('.legend');
 const projectsContainer = document.querySelector('.projects');
+const title = document.querySelector('.projects-title');
+
+// --- Update the count next to "Projects" ---
+function updateProjectCount(list) {
+  if (title) {
+    title.textContent = `Projects (${list.length})`;
+  }
+}
 
 async function loadProjects() {
   const data = await fetchJSON('../lib/projects.json');
   if (!data) return;
   projects = data;
+
   renderProjects(projects, projectsContainer, 'h2');
+  updateProjectCount(projects);
   renderPieChart(projects);
 }
 
@@ -43,16 +53,23 @@ function renderPieChart(projectsGiven) {
     .attr('class', (_, i) => (i === selectedIndex ? 'selected' : null))
     .on('click', (_, i) => {
       selectedIndex = selectedIndex === i ? -1 : i;
-
-      // Update classes on paths
       g.selectAll('path').attr('class', (_, idx) =>
         idx === selectedIndex ? 'selected' : null
       );
-
-      // Update classes on legend items
       legend.selectAll('li').attr('class', (_, idx) =>
         idx === selectedIndex ? 'selected' : null
       );
+
+      // Filter by year on click
+      if (selectedIndex === -1) {
+        renderProjects(projects, projectsContainer, 'h2');
+        updateProjectCount(projects);
+      } else {
+        const year = data[selectedIndex].label;
+        const filtered = projects.filter(p => p.year === year);
+        renderProjects(filtered, projectsContainer, 'h2');
+        updateProjectCount(filtered);
+      }
     })
     .append('title')
     .text(d => `${d.data.label}: ${d.data.value}`);
@@ -64,14 +81,22 @@ function renderPieChart(projectsGiven) {
     .attr('class', (_, i) => (i === selectedIndex ? 'selected' : null))
     .on('click', (_, i) => {
       selectedIndex = selectedIndex === i ? -1 : i;
-
       g.selectAll('path').attr('class', (_, idx) =>
         idx === selectedIndex ? 'selected' : null
       );
-
       legend.selectAll('li').attr('class', (_, idx) =>
         idx === selectedIndex ? 'selected' : null
       );
+
+      if (selectedIndex === -1) {
+        renderProjects(projects, projectsContainer, 'h2');
+        updateProjectCount(projects);
+      } else {
+        const year = data[selectedIndex].label;
+        const filtered = projects.filter(p => p.year === year);
+        renderProjects(filtered, projectsContainer, 'h2');
+        updateProjectCount(filtered);
+      }
     });
 
   legendItems
