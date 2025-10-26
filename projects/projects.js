@@ -70,10 +70,15 @@ function handleClick(i, data) {
   d3.selectAll('.wedge').classed('selected', (_, idx) => idx === selectedIndex);
   d3.selectAll('.legend-item').classed('selected', (_, idx) => idx === selectedIndex);
 
-  const year = selectedIndex === -1 ? null : data[selectedIndex].label;
-  const filtered = year ? projects.filter(p => p.year === year) : projects;
-
-  renderProjects(filtered, projectsContainer, 'h2');
+  if (selectedIndex === -1) {
+    renderProjects(projects, projectsContainer, 'h2');
+    renderPieChart(projects);
+  } else {
+    const year = data[selectedIndex].label;
+    const filtered = projects.filter(p => p.year === year);
+    renderProjects(filtered, projectsContainer, 'h2');
+    renderPieChart(filtered);
+  }
 }
 
 searchInput.addEventListener('input', (event) => {
