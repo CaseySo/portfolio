@@ -8,7 +8,6 @@ const svg = d3.select('#projects-plot');
 const legend = d3.select('.legend');
 const projectsContainer = document.querySelector('.projects');
 const title = document.querySelector('.projects-title');
-const searchInput = document.querySelector('#search');
 
 // --- Update the count next to "Projects" ---
 function updateProjectCount(list) {
@@ -19,6 +18,7 @@ function updateProjectCount(list) {
 
 async function loadProjects() {
   const data = await fetchJSON('../lib/projects.json');
+  const searchInput = document.querySelector('#search');
   if (!data) return;
   projects = data;
 
