@@ -8,6 +8,7 @@ const svg = d3.select('#projects-plot');
 const legend = d3.select('.legend');
 const projectsContainer = document.querySelector('.projects');
 const title = document.querySelector('.projects-title');
+const searchInput = document.querySelector('#search');
 
 // --- Update the count next to "Projects" ---
 function updateProjectCount(list) {
@@ -107,5 +108,21 @@ function renderPieChart(projectsGiven) {
     .append('span')
     .text(d => `${d.label} (${d.value})`);
 }
+searchInput?.addEventListener('input', e => {
+  const query = e.target.value.toLowerCase();
+
+  const filteredBySearch = projects.filter(p =>
+    p.title?.toLowerCase().includes(query)
+  );
+
+  let finalList = filteredBySearch;
+  if (selectedIndex !== -1) {
+    const year = d3.selectAll('.legend li').data()[selectedIndex].label;
+    finalList = filteredBySearch.filter(p => String(p.year) === String(year));
+  }
+
+  renderProjects(finalList, projectsContainer, 'h2');
+  updateProjectCount(finalList);
+});
 
 loadProjects();
