@@ -27,7 +27,7 @@ async function loadProjects() {
   renderPieChart(projects);
 
   // ✅ Set up search once data + chart exist
-  const searchInput = document.querySelector('#search');
+  const searchInput = document.querySelector('.searchBar');
   if (searchInput) {
     searchInput.addEventListener('input', e => {
       const query = e.target.value.toLowerCase();
