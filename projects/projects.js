@@ -34,8 +34,11 @@ async function loadProjects() {
 
       // Filter by search text
       const filteredBySearch = projects.filter(p =>
-        p.title?.toLowerCase().includes(query)
-      );
+        p.title?.toLowerCase().includes(query) ||
+        String(p.year).includes(query) ||
+        p.description?.toLowerCase().includes(query)
+      );``
+
 
       // If a pie slice is selected, filter by that year too
       let finalList = filteredBySearch;
