@@ -18,13 +18,36 @@ function updateProjectCount(list) {
 
 async function loadProjects() {
   const data = await fetchJSON('../lib/projects.json');
-  const searchInput = document.querySelector('#search');
   if (!data) return;
   projects = data;
 
+  // ✅ Initial render
   renderProjects(projects, projectsContainer, 'h2');
   updateProjectCount(projects);
   renderPieChart(projects);
+
+  // ✅ Set up search once data + chart exist
+  const searchInput = document.querySelector('#search');
+  if (searchInput) {
+    searchInput.addEventListener('input', e => {
+      const query = e.target.value.toLowerCase();
+
+      // Filter by search text
+      const filteredBySearch = projects.filter(p =>
+        p.title?.toLowerCase().includes(query)
+      );
+
+      // If a pie slice is selected, filter by that year too
+      let finalList = filteredBySearch;
+      if (selectedIndex !== -1) {
+        const year = d3.selectAll('.legend li').data()[selectedIndex].label;
+        finalList = filteredBySearch.filter(p => String(p.year) === String(year));
+      }
+
+      renderProjects(finalList, projectsContainer, 'h2');
+      updateProjectCount(finalList);
+    });
+  }
 }
 
 function renderPieChart(projectsGiven) {
@@ -56,6 +79,7 @@ function renderPieChart(projectsGiven) {
       const i = data.findIndex(e => e.label === d.data.label);
       selectedIndex = selectedIndex === i ? -1 : i;
 
+      // Update visuals
       g.selectAll('path').attr('class', (_, idx) =>
         idx === selectedIndex ? 'selected' : null
       );
@@ -63,13 +87,22 @@ function renderPieChart(projectsGiven) {
         idx === selectedIndex ? 'selected' : null
       );
 
-      if (selectedIndex === -1) {
-        renderProjects(projects, projectsContainer, 'h2');
-      } else {
+      // Get current search query (if any)
+      const searchInput = document.querySelector('#search');
+      const query = searchInput?.value?.toLowerCase() || '';
+
+      let filtered = projects.filter(p =>
+        p.title?.toLowerCase().includes(query)
+      );
+
+      // If a slice is selected, filter by year too
+      if (selectedIndex !== -1) {
         const year = data[selectedIndex].label;
-        const filtered = projects.filter(p => String(p.year) === String(year));
-        renderProjects(filtered, projectsContainer, 'h2');
+        filtered = filtered.filter(p => String(p.year) === String(year));
       }
+
+      renderProjects(filtered, projectsContainer, 'h2');
+      updateProjectCount(filtered);
     })
     .append('title')
     .text(d => `${d.data.label}: ${d.data.value}`);
@@ -88,15 +121,20 @@ function renderPieChart(projectsGiven) {
         idx === selectedIndex ? 'selected' : null
       );
 
-      if (selectedIndex === -1) {
-        renderProjects(projects, projectsContainer, 'h2');
-      } else {
+      const searchInput = document.querySelector('#search');
+      const query = searchInput?.value?.toLowerCase() || '';
+
+      let filtered = projects.filter(p =>
+        p.title?.toLowerCase().includes(query)
+      );
+
+      if (selectedIndex !== -1) {
         const year = data[selectedIndex].label;
-        const filtered = projects.filter(p => p.year === year);
-        renderProjects(filtered, projectsContainer, 'h2');
+        filtered = filtered.filter(p => String(p.year) === String(year));
       }
 
-
+      renderProjects(filtered, projectsContainer, 'h2');
+      updateProjectCount(filtered);
     });
 
   legendItems
@@ -108,21 +146,5 @@ function renderPieChart(projectsGiven) {
     .append('span')
     .text(d => `${d.label} (${d.value})`);
 }
-searchInput?.addEventListener('input', e => {
-  const query = e.target.value.toLowerCase();
-
-  const filteredBySearch = projects.filter(p =>
-    p.title?.toLowerCase().includes(query)
-  );
-
-  let finalList = filteredBySearch;
-  if (selectedIndex !== -1) {
-    const year = d3.selectAll('.legend li').data()[selectedIndex].label;
-    finalList = filteredBySearch.filter(p => String(p.year) === String(year));
-  }
-
-  renderProjects(finalList, projectsContainer, 'h2');
-  updateProjectCount(finalList);
-});
 
 loadProjects();
