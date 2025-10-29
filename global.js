@@ -124,7 +124,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     return;
   }
 
-  containerElement.innerHTML = ''; // clear old content
+  containerElement.innerHTML = ''; 
 
   for (let project of projects) {
     const imageSrc = project.image.startsWith('http')

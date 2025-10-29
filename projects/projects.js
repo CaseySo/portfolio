@@ -9,7 +9,6 @@ const legend = d3.select('.legend');
 const projectsContainer = document.querySelector('.projects');
 const title = document.querySelector('.projects-title');
 
-// --- Update the count next to "Projects" ---
 function updateProjectCount(list) {
   if (title) {
     title.textContent = `Projects (${list.length})`;
@@ -21,18 +20,15 @@ async function loadProjects() {
   if (!data) return;
   projects = data;
 
-  // ✅ Initial render
   renderProjects(projects, projectsContainer, 'h2');
   updateProjectCount(projects);
   renderPieChart(projects);
 
-  // ✅ Set up search once data + chart exist
   const searchInput = document.querySelector('.searchBar');
   if (searchInput) {
     searchInput.addEventListener('input', e => {
       const query = e.target.value.toLowerCase();
 
-      // Filter by search text
       const filteredBySearch = projects.filter(p =>
         p.title?.toLowerCase().includes(query) ||
         String(p.year).includes(query) ||
@@ -40,7 +36,6 @@ async function loadProjects() {
       );``
 
 
-      // If a pie slice is selected, filter by that year too
       let finalList = filteredBySearch;
       if (selectedIndex !== -1) {
         const year = d3.selectAll('.legend li').data()[selectedIndex].label;

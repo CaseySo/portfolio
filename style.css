@@ -189,12 +189,10 @@ html {
   box-shadow: 0 0 3px color-mix(in oklch, var(--color), black 25%);
 }
 
-/* --- STEP 5.1: FADE OTHERS ON HOVER --- */
 svg:has(path:hover) path:not(:hover) {
   opacity: 0.5;
 }
 
-/* --- STEP 5.2: SELECTED WEDGE & LEGEND --- */
 path {
   transition: 300ms;
   cursor: pointer;
@@ -216,12 +214,10 @@ path {
 }
 
 
-/* --- STEP 5.1: FADE OTHERS ON HOVER --- */
 svg:has(path:hover) path:not(:hover) {
   opacity: 0.5;
 }
 
-/* --- STEP 5.2: SELECTED WEDGE & LEGEND --- */
 path {
   transition: 300ms;
   cursor: pointer;
