@@ -1,9 +1,5 @@
-// Import D3
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-// -------------------------
-// Step 1.1: Load CSV
-// -------------------------
 let xScale, yScale;
 let allCommits = [];
 let selectedCommits = [];
@@ -18,11 +14,8 @@ async function loadData() {
     datetime: new Date(row.datetime),
   }));
   return data;
-}
+} 
 
-// -------------------------
-// Step 1.2: Process commits
-// -------------------------
 function processCommits(data) {
   return d3
     .groups(data, (d) => d.commit)
@@ -77,13 +70,10 @@ function renderCommitInfo(data, commits) {
   dl.append('dd').text(d3.max(commits, (d) => d.totalLines));
 }
 
-// -------------------------
-// Step 1.4 + Step 3: Scatterplot + Tooltip
-// -------------------------
 async function main() {
   const data = await loadData();
   const commits = processCommits(data);
-  allCommits = commits; // store globally for brush
+  allCommits = commits;
   renderCommitInfo(data, commits);
 
   const width = 800;
@@ -97,7 +87,7 @@ async function main() {
     .attr('width', width)
     .attr('height', height);
 
-  // Scales
+
   xScale = d3.scaleTime()
     .domain(d3.extent(commits, (d) => d.date))
     .range([margin.left, width - margin.right]);
@@ -106,7 +96,6 @@ async function main() {
     .domain([0, 24])
     .range([height - margin.bottom, margin.top]);
 
-  // Gridlines
   svg.append('g')
     .attr('class', 'gridlines')
     .attr('transform', `translate(${margin.left},0)`)
@@ -116,7 +105,6 @@ async function main() {
         .tickSize(-(width - margin.left - margin.right))
     );
 
-  // Axes
   svg.append('g')
     .attr('class', 'x-axis')
     .attr('transform', `translate(0,${height - margin.bottom})`)
@@ -127,7 +115,6 @@ async function main() {
     .attr('transform', `translate(${margin.left},0)`)
     .call(d3.axisLeft(yScale).ticks(12).tickFormat((d) => `${d}:00`));
 
-  // Title + labels
   svg.append('text')
     .attr('class', 'chart-title')
     .attr('x', width / 2)
@@ -152,11 +139,10 @@ async function main() {
 
   const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
 
-  const rScale = d3.scaleSqrt() // use square root for correct area perception
+  const rScale = d3.scaleSqrt()
     .domain([minLines, maxLines])
     .range([4, 30]);
 
-  // Dots + tooltip
   const dots = svg.append('g');
 
   dots.selectAll('circle')
@@ -182,9 +168,6 @@ async function main() {
   createBrushSelector(svg);
 }
 
-// -------------------------
-// Tooltip helper functions
-// -------------------------
 function renderTooltipContent(commit) {
   const link = document.getElementById('commit-link');
   const date = document.getElementById('commit-date');
@@ -212,12 +195,9 @@ function updateTooltipPosition(event) {
   tooltip.style.top = event.clientY + 10 + 'px';
 }
 
-// -------------------------
-// Brush and selection
-// -------------------------
 function createBrushSelector(svg) {
   svg.call(d3.brush().on('start brush end', brushed));
-  svg.selectAll('circle').raise(); // dots stay above brush overlay
+  svg.selectAll('circle').raise(); 
 }
 
 function isCommitSelected(selection, commit) {
@@ -251,7 +231,6 @@ function renderLanguageBreakdown(selection) {
 
   const lines = selected.flatMap((d) => d.lines);
 
-  // Count lines per language
   const breakdown = d3.rollup(
     lines,
     (v) => v.length,
@@ -271,11 +250,9 @@ function renderLanguageBreakdown(selection) {
 function brushed(event) {
   const selection = event.selection;
 
-  // Highlight selected dots
   d3.selectAll('circle')
     .classed('selected', (d) => isCommitSelected(selection, d));
 
-  // Update count and language breakdown
   renderSelectionCount(selection);
   renderLanguageBreakdown(selection);
 }
