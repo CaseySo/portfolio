@@ -1,24 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meta | Casey So</title>
-  <link rel="stylesheet" href="../style.css">
-  <script src="../global.js" type="module"></script>
-  <script src="meta.js" type="module" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meta — Code Stats</title>
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
   <h1>Meta</h1>
-  <p>
-    This page shows a scatterplot comparing project metadata, 
-    where each point represents a project.
-  </p>
+  <div id="stats"></div>
 
-  <section id="meta-chart">
-    <svg id="meta-plot" viewBox="0 0 500 400"></svg>
-  </section>
+  <!-- Tooltip -->
+  <dl id="commit-tooltip" class="info tooltip" hidden>
+    <dt>Commit</dt>
+    <dd>
+      <a href="" id="commit-link" target="_blank"></a>
+    </dd>
 
-  <div class="projects"></div>
+    <dt>Date</dt>
+    <dd id="commit-date"></dd>
+
+    <dt>Time</dt>
+    <dd id="commit-time"></dd>
+
+    <dt>Author</dt>
+    <dd id="commit-author"></dd>
+
+    <dt>Lines Edited</dt>
+    <dd id="commit-lines"></dd>
+  </dl>
+  
+  <div id="chart-container"></div>
+  
+  <script type="module" src="../global.js"></script>
+  <script type="module" src="./main.js"></script>
+
+  <p id="selection-count">No commits selected</p>
+  <dl id="language-breakdown" class="stats"></dl>
 </body>
 </html>
