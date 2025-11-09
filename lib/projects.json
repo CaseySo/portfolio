@@ -24,10 +24,10 @@
         "description": "This project analyzes how crash severity differs between urban and rural roads. While urban areas have more total crashes, we examine whether the proportion of fatal crashes is higher or lower compared to rural roads."
     },
     {
-        "title": "Placeholder 1",
-        "year": "2024",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Numquam aliquid voluptates, nobis adipisci corporis dicta blanditiis enim laboriosam, accusantium distinctio dolorum at atque explicabo totam ratione labore nam assumenda in eaque itaque. Obcaecati vel doloribus odio alias assumenda?"
+        "title": "BikeMapping",
+        "year": "2025",
+        "image": "images/bikemap.png",
+        "description": "This interactive map visualizes Bluebikes traffic patterns across Boston and Cambridge. Circle size shows total trip volume, while color indicates whether a station sees more departures or arrivals. Using the time slider, users can explore how bike traffic flow changes throughout the day."
     },
     {
         "title": "Placeholder 2",
