@@ -8,20 +8,33 @@
 </head>
 <body>
   <h1>Meta</h1>
+
+  <!-- Slider + time display -->
+  <div style="display: flex; align-items: baseline; gap: 10px; width: 100%;">
+    <label>
+      Show commits until:
+      <input id="commit-progress" type="range" min="0" max="100" value="100">
+    </label>
+
+    <time id="commit-time" style="margin-left: auto;"></time>
+    
+  </div>
+    <dl id="files">
+  <!-- JS will populate this -->
+  </dl>
+
   <div id="stats"></div>
 
   <!-- Tooltip -->
   <dl id="commit-tooltip" class="info tooltip" hidden>
     <dt>Commit</dt>
-    <dd>
-      <a href="" id="commit-link" target="_blank"></a>
-    </dd>
+    <dd><a href="" id="commit-link" target="_blank"></a></dd>
 
     <dt>Date</dt>
     <dd id="commit-date"></dd>
 
     <dt>Time</dt>
-    <dd id="commit-time"></dd>
+    <dd id="commit-time-tooltip"></dd>
 
     <dt>Author</dt>
     <dd id="commit-author"></dd>
@@ -29,11 +42,12 @@
     <dt>Lines Edited</dt>
     <dd id="commit-lines"></dd>
   </dl>
-  
+
   <div id="chart-container"></div>
-  
+
   <script type="module" src="../global.js"></script>
   <script type="module" src="./main.js"></script>
+  <script type="module" src="./meta.js"></script>
 
   <p id="selection-count">No commits selected</p>
   <dl id="language-breakdown" class="stats"></dl>
