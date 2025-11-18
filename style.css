@@ -1,11 +1,13 @@
 body {
   font: 100%/1.5 system-ui;
-  max-width: 100ch;
-  margin-inline: max(1em, (100% - 100ch) / 2);
+  max-width: 160ch;  /* ⬅ was 100ch — this fixes the right-shift */
+  margin-inline: max(1em, (100% - 160ch) / 2); /* ⬅ updated to match */
+
   padding: 1em;
   border: 2px solid #6aaeff;
   border-radius: 12px;
 }
+
 
 nav ul,
 nav li {
@@ -404,3 +406,33 @@ dt > small {
   font-size: 0.8em;
 }
 
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+}
+
+#scrolly-1 > * {
+  flex: 1;
+}
+
+#scatter-story {
+  position: relative;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  height: 50vh;  /* REQUIRED */
+}
+#commit-tooltip {
+  position: absolute;
+  pointer-events: none;
+  z-index: 999999;     /* ALWAYS on top */
+  background: white;
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}

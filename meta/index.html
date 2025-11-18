@@ -8,21 +8,7 @@
 </head>
 <body>
   <h1>Meta</h1>
-
-  <!-- Slider + time display -->
-  <div style="display: flex; align-items: baseline; gap: 10px; width: 100%;">
-    <label>
-      Show commits until:
-      <input id="commit-progress" type="range" min="0" max="100" value="100">
-    </label>
-
-    <time id="commit-time" style="margin-left: auto;"></time>
-    
- 
-
-  <div id="stats"></div>
-
-  <!-- Tooltip -->
+<!-- Tooltip -->
   <dl id="commit-tooltip" class="info tooltip" hidden>
     <dt>Commit</dt>
     <dd><a href="" id="commit-link" target="_blank"></a></dd>
@@ -39,19 +25,44 @@
     <dt>Lines Edited</dt>
     <dd id="commit-lines"></dd>
   </dl>
+  <!-- Slider + time display -->
+  <div style="display: flex; align-items: baseline; gap: 10px; width: 100%;">
+    <label>
+      Show commits until:
+      <input id="commit-progress" type="range" min="0" max="100" value="100">
+    </label>
 
+    <time id="commit-time" style="margin-left: auto;"></time>
+  </div> <!-- FIXED: closed the slider div here -->
+
+  <div id="stats"></div>
+
+  
+
+  <!-- === SCROLLY LAYOUT: REQUIRED === -->
+<div id="scrolly-1">
+  
+  <!-- LEFT COLUMN: story text -->
+  <div id="scatter-story"></div>
+
+  <!-- RIGHT COLUMN: scatter plot + UI -->
+  <!-- RIGHT COLUMN: scatter plot + UI -->
+<div id="scatter-plot">
   <div id="chart-container"></div>
+
+  <p id="selection-count">No commits selected</p>
+
+  <!-- Stats / language breakdown -->
+  <dl id="language-breakdown" class="stats"></dl>
+
+  <!-- Dots container -->
+  <dl id="files"></dl>
+</div>
+</div>
 
   <script type="module" src="../global.js"></script>
   <script type="module" src="./main.js"></script>
   <script type="module" src="./meta.js"></script>
 
-  <p id="selection-count">No commits selected</p>
-  <dl id="language-breakdown" class="stats"></dl> 
-  
-  </div>
-    <dl id="files">
-  <!-- JS will populate this -->
-  </dl>
 </body>
 </html>
