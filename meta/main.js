@@ -3,6 +3,7 @@ import { initMeta, updateScatterPlot, allCommits, filteredCommits } from './meta
 
 let xScale, yScale;
 let selectedCommits = [];
+const colorScale = d3.scaleOrdinal(d3.schemeTableau10);
 
 async function loadData() {
   const data = await d3.csv('loc.csv', row => ({
@@ -66,27 +67,38 @@ function renderCommitInfo(data, commits) {
 }
 function updateFileDisplay(filteredCommits) {
   // Flatten all lines from filtered commits
-  const lines = filteredCommits.flatMap(d => d.lines)
-  ;
+  const lines = filteredCommits.flatMap(d => d.lines);
 
-  // Group lines by file
+  // Group by file, convert to array, and sort by size (DESC)
   const files = d3.groups(lines, d => d.file)
-    .map(([name, lines]) => ({ name, lines }));
+    .map(([name, lines]) => ({ name, lines }))
+    .sort((a, b) => b.lines.length - a.lines.length);
 
-  // Bind data to <div> elements inside <dl id="files">
+  // Bind data to <div> items inside <dl id="files">
   const filesContainer = d3.select('#files')
-    .selectAll('div')
-    .data(files, d => d.name)
-    .join(
-      enter => enter.append('div').call(div => {
-        div.append('dt').append('code');
-        div.append('dd');
-      })
-    );
+  .selectAll('div')
+  .data(files, d => d.name)
+  .join(
+    enter => enter.append('div').call(div => {
+      div.append('dt').append('code');
+      div.append('dd');
+    })
+  );
 
-  // Update text
-  filesContainer.select('dt > code').text(d => d.name);
-  filesContainer.select('dd').text(d => `${d.lines.length} lines`);
+
+  // Update filename + line count (in <dt>)
+  filesContainer.select('dt > code')
+    .html(d => `${d.name}<br><small>${d.lines.length} lines</small>`);
+
+  // UNIT VISUALIZATION: one dot per line
+  filesContainer
+  .select('dd')
+  .selectAll('.loc')
+  .data(d => d.lines)
+  .join('div')
+  .attr('class', 'loc')
+  .style('background', line => colorScale(line.type));
+
 }
 
 async function main() {
