@@ -1,74 +1,67 @@
 [
-    {
-        "title": "Recipe Length Analysis",
-        "year": "2025",
-        "image": "images/reciepe_length.jpg",
-        "description": "This project explores how a recipe’s cooking time affects user ratings using Food.com data (2008–2018). It examines whether longer, more complex recipes earn higher ratings and uses linear regression to study how cooking time relates to both satisfaction and the number of steps."
-    },
-    {
-        "title": "Health, Wealth, and Women: How GDP Shapes Women’s Well-Being Around the World",
-        "year": "2024",
-        "image": "images/health_spending.png",
-        "description": "This project explores how national wealth and health expenditure impact women’s health outcomes across countries in 2021. By comparing nations with different GDP levels, it reveals global inequalities in access to healthcare and highlights the link between investment in health and women’s quality of life."
-    },
-    {
-        "title": "Medicare Optmiization",
-        "year": "2025",
-        "image": "images/medicare.png",
-        "description": "Optimized data workflows for Kaiser Permanente’s Medicare Bid process by automating validation and streamlining SQL and Python pipelines. Improved efficiency, accuracy, and transparency in key actuarial datasets supporting pricing and forecasting decisions."
-    },
-    {
-        "title": "An Analysis of Crash Severity Across Urban and Rural Environments",
-        "year": "2023",
-        "image": "images/crash.png",
-        "description": "This project analyzes how crash severity differs between urban and rural roads. While urban areas have more total crashes, we examine whether the proportion of fatal crashes is higher or lower compared to rural roads."
-    },
-    {
-        "title": "BikeMapping",
-        "year": "2025",
-        "image": "images/bikemap.png",
-        "description": "This interactive map visualizes Bluebikes traffic patterns across Boston and Cambridge. Circle size shows total trip volume, while color indicates whether a station sees more departures or arrivals. Using the time slider, users can explore how bike traffic flow changes throughout the day."
-    },
-    {
-        "title": "Placeholder 2",
-        "year": "2023",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Eum nostrum tempore sunt itaque officiis tempora, adipisci laborum sapiente debitis aut autem veniam quod illum alias dignissimos placeat iusto corporis voluptate? Possimus omnis illo, obcaecati molestias ullam maiores repudiandae."
-    },
-    {
-        "title": "Placeholder 3",
-        "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Quisquam quia odio aut saepe corrupti! Quos rem vero alias ex minus provident maiores? Consequatur maxime rerum officia eaque quo amet, dolor cupiditate voluptas iusto fugit sequi quidem numquam laborum."
-    },
-    {
-        "title": "Placeholder 4",
-        "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Dolores debitis maiores nisi, rerum fugiat laboriosam aut sed blanditiis sequi quaerat quo praesentium impedit magni aliquid illo? Molestias repellat recusandae sunt expedita obcaecati quis deleniti incidunt nemo rerum qui."
-    },
-    {
-        "title": "Placeholder 5",
-        "year": "2023",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Qui ab atque placeat animi a. Delectus aut, neque laborum eius doloribus unde, accusamus asperiores amet modi exercitationem velit animi, vitae similique laudantium provident magni beatae earum voluptatem facere necessitatibus."
-    },
-    {
-        "title": "Placeholder 6",
-        "year": "2022",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Praesentium officia non doloremque! Fuga, natus impedit nam aliquam ut incidunt rem dignissimos repudiandae vero fugiat error sit consequuntur ratione mollitia, quasi tempora accusantium nemo officia culpa a similique veritatis."
-    },
-    {
-        "title": "Placeholder 7",
-        "year": "2021",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Harum eveniet quam doloremque ipsum, accusamus eligendi corrupti veniam non, expedita aspernatur aliquam nisi, et quibusdam iste nobis alias cumque tenetur enim. Similique voluptates, enim ducimus ullam praesentium nobis quo!"
-    },
-    {
-        "title": "Placeholder 8",
-        "year": "2022",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Nulla cum nesciunt minus. Incidunt, veritatis! Sit quos, amet explicabo ratione iure dolore accusamus inventore. Modi, assumenda. Amet dolorum eos nam esse labore omnis dignissimos, recusandae repellendus dolores voluptate dolor?"
-    }
+  {
+    "title": "Carbon In America: Where Do We Stand?",
+    "year": "2025",
+    "image": "images/carbon.png",
+    "description": "An interactive data visualization project analyzing U.S. carbon emissions in the context of the Paris Climate Agreement. The project explores trends, policy impacts, and potential emissions-reduction scenarios to make climate data more accessible and engaging for a general audience.",
+    "link": "https://caseyso.github.io/paris-agreement-climate-viz/",
+    "awards": ["Honorable Mention", "Best Presentation", "People's Choice Award"]
+  },
+  {
+    "title": "U.S Environmental Visualizations",
+    "year": "2025",
+    "image": "images/us_environment.png",
+    "description": "Interactive web-based visualization exploring how seasonal and regional environmental conditions in the United States changed from January 2024 through September 2025 using MODIS satellite data.",
+    "link": "https://laurenthanhvo.github.io/dsc106-proj3/index.html"
+  },
+  {
+    "title": "Steam Game Recommendation System",
+    "year": "2025",
+    "image": "images/steam.png",
+    "description": "Interactive machine learning project predicting whether users will recommend a Steam game using review text and playtime data, achieving over 90% accuracy with a TF–IDF–based linear model.",
+    "link": "https://github.com/laurenthanhvo/steam-game-recommendation-system/blob/main/steam_games_COMPLETE.ipynb"
+  },
+  {
+    "title": "Mapping Campus Safety: An Analysis of UCSD Police Department Logs",
+    "year": "2025",
+    "image": "images/crime.png",
+    "description": "This project analyzes UCSD Police Department logs to assess campus safety trends over time. By visualizing incident reports and response patterns, it aims to identify areas for improvement in campus safety measures.",
+    "link": "https://github.com/CaseySo/ucsd-police-logs-analysis/blob/main/notebooks/Final_Notebook.ipynb"
+  },
+  {
+    "title": "Recipe Length Analysis",
+    "year": "2025",
+    "image": "images/reciepe_length.jpg",
+    "description": "This project explores how a recipe’s cooking time affects user ratings using Food.com data (2008–2018). It examines whether longer, more complex recipes earn higher ratings and uses linear regression to study how cooking time relates to both satisfaction and the number of steps.",
+    "link": "https://github.com/CaseySo/recipe-analysis"
+  },
+  {
+    "title": "Medicare Optmiization",
+    "year": "2025",
+    "image": "images/medicare.png",
+    "description": "Optimized data workflows for Kaiser Permanente’s Medicare Bid process by automating validation and streamlining SQL and Python pipelines. Improved efficiency, accuracy, and transparency in key actuarial datasets supporting pricing and forecasting decisions.",
+    "link": "https://docs.google.com/presentation/d/1f6jKqkA5mfIkHrA_N0RONOpPifvjAySX/edit?usp=sharing&ouid=106653516767724378364&rtpof=true&sd=true"
+  },
+  {
+    "title": "BikeMapping",
+    "year": "2025",
+    "image": "images/bikemap.png",
+    "description": "This interactive map visualizes Bluebikes traffic patterns across Boston and Cambridge. Circle size shows total trip volume, while color indicates whether a station sees more departures or arrivals. Using the time slider, users can explore how bike traffic flow changes throughout the day.",
+    "link": "https://caseyso.github.io/bikecharts/"
+  },
+  {
+    "title": "Health, Wealth, and Women: How GDP Shapes Women’s Well-Being Around the World",
+    "year": "2024",
+    "image": "images/health_spending.png",
+    "description": "This project explores how national wealth and health expenditure impact women’s health outcomes across countries in 2021. By comparing nations with different GDP levels, it reveals global inequalities in access to healthcare and highlights the link between investment in health and women’s quality of life.",
+    "link": "https://github.com/CaseySo/COGS_108_PROJECT"
+  },
+  {
+    "title": "An Analysis of Crash Severity Across Urban and Rural Environments",
+    "year": "2023",
+    "image": "images/crash.png",
+    "description": "This project analyzes how crash severity differs between urban and rural roads. While urban areas have more total crashes, we examine whether the proportion of fatal crashes is higher or lower compared to rural roads. Won Second Place in Skyline College Dataton 2023.",
+    "link": "https://docs.google.com/presentation/d/1_2xs40NCMgEC-IgmfnyBT5dFrKSyPiSWOEKOVgjegCk/edit?usp=sharing",
+    "awards": ["2nd Place - Skyline College Dataton 2023"]
+  }
 ]

@@ -5,6 +5,25 @@ let xScale, yScale;
 let selectedCommits = [];
 const colorScale = d3.scaleOrdinal(d3.schemeTableau10);
 
+const commitTimeEl = document.getElementById('commit-time');
+
+function updateDisplayedDate(commits) {
+  if (!commits.length) {
+    commitTimeEl.textContent = '';
+    return;
+  }
+
+  const latest = d3.max(commits, d => d.datetime);
+
+  commitTimeEl.textContent = latest.toLocaleDateString(undefined, {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+
+  commitTimeEl.dateTime = latest.toISOString();
+}
+
 async function loadData() {
   const data = await d3.csv('loc.csv', row => ({
     ...row,
@@ -188,6 +207,8 @@ async function main() {
 
   // Initial file display shows ALL files/lines
   updateFileDisplay(commits);
+  updateDisplayedDate(commits);
+
 }
 
 

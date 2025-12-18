@@ -125,31 +125,51 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     return;
   }
 
-  containerElement.innerHTML = ''; 
+  containerElement.innerHTML = '';
 
-  for (let project of projects) {
+  projects.forEach(project => {
+    const article = document.createElement('article');
+    article.classList.add('project-card');
+
     const imageSrc = project.image.startsWith('http')
       ? project.image
       : (window.location.pathname.includes('/projects/')
-          ? `../${project.image}`  
-          : project.image);        
+          ? `../${project.image}`
+          : project.image);
 
-    const article = document.createElement('article');
+    const titleHTML = project.link
+      ? `<a href="${project.link}" ${
+          project.link.startsWith('http')
+            ? 'target="_blank" rel="noopener noreferrer"'
+            : ''
+        }>${project.title}</a>`
+      : project.title;
+
+    const awardsHTML = Array.isArray(project.awards)
+      ? `
+        <div class="project-awards">
+          ${project.awards.map(a => `<span class="badge">${a}</span>`).join('')}
+        </div>
+      `
+      : '';
 
     article.innerHTML = `
-      <${headingLevel}>${project.title}</${headingLevel}>
-      <p class="year">${project.year}</p>
       <img src="${imageSrc}" alt="${project.title}">
+      <${headingLevel}>
+        ${titleHTML}
+        ${awardsHTML}
+      </${headingLevel}>
       <p>${project.description}</p>
     `;
 
     containerElement.appendChild(article);
-  }
+  });
 
   if (projects.length === 0) {
     containerElement.innerHTML = '<p>No projects found.</p>';
   }
 }
+
 export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);
 }
