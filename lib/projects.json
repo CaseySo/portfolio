@@ -36,7 +36,7 @@
     "link": "https://github.com/CaseySo/recipe-analysis"
   },
   {
-    "title": "Medicare Optmiization",
+    "title": "Medicare Optmization",
     "year": "2025",
     "image": "images/medicare.png",
     "description": "Optimized data workflows for Kaiser Permanente’s Medicare Bid process by automating validation and streamlining SQL and Python pipelines. Improved efficiency, accuracy, and transparency in key actuarial datasets supporting pricing and forecasting decisions.",
@@ -54,7 +54,7 @@
     "year": "2024",
     "image": "images/health_spending.png",
     "description": "This project explores how national wealth and health expenditure impact women’s health outcomes across countries in 2021. By comparing nations with different GDP levels, it reveals global inequalities in access to healthcare and highlights the link between investment in health and women’s quality of life.",
-    "link": "https://github.com/CaseySo/COGS_108_PROJECT"
+    "link": "https://github.com/CaseySo/GDP_and_Women_Health/blob/main/Final_Project.ipynb"
   },
   {
     "title": "An Analysis of Crash Severity Across Urban and Rural Environments",
