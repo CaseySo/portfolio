@@ -22,6 +22,13 @@
     "link": "https://github.com/laurenthanhvo/steam-game-recommendation-system/blob/main/steam_games_COMPLETE.ipynb"
   },
   {
+    "title": "Tableau Skills Assessment",
+    "year": "2026",
+    "image": "images/sales.png",
+    "description": "This project demonstrates advanced Tableau skills by transforming transactional sales and purchasing data into interactive visual insights across time, locations, and employees. It leverages calculated fields, dual-axis charts, FIXED level-of-detail (LOD) expressions, trend analysis, and interactive dashboards to support data-driven decision-making.",
+    "link": "https://public.tableau.com/views/TableauWorkbookwithDataLoaded_17681929520300/Story1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+  },
+  {
     "title": "Mapping Campus Safety: An Analysis of UCSD Police Department Logs",
     "year": "2025",
     "image": "images/crime.png",
