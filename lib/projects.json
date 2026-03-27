@@ -1,5 +1,12 @@
 [
   {
+    "title": "Campus Event Recommendation (Figma)",
+    "year": "2026",
+    "image": "images/campus_event.png",
+    "description": "Many students struggle to discover campus events across multiple platforms. This project explores an AI-powered recommendation system to deliver personalized event suggestions. Designed in Figma, it includes wireframes, interactive prototypes, component libraries, and user-centered UX flows informed by HCI principles.",
+    "link": "https://www.figma.com/design/jeMnApiMJZgwDh1fcaQLef/Campus-Event-Recommendation?node-id=1446-1732&t=3tIHLXNRxiXTYyLW-1"
+  },
+  {
     "title": "Carbon In America: Where Do We Stand?",
     "year": "2025",
     "image": "images/carbon.png",
