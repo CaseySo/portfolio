@@ -1,5 +1,12 @@
 [
   {
+    "title": "Beyond the Lab",
+    "year": "2026",
+    "image": "images/poster.png",
+    "description": "Beyond the Lab investigates the feasibility of non-invasive diabetes risk detection by applying and comparing four classification models — logistic regression, KNN, ridge, and LASSO — to lifestyle and demographic data from 11,744 NHANES participants. Our results demonstrate that a lab-free screening tool can achieve 68% accuracy, suggesting promise for equitable, low-barrier diabetes detection in underserved communities without access to clinical testing.",
+    "link": "https://caseyso.github.io/COGS109_FINAL_PROJECT/"
+  },
+  {
     "title": "TransferLink",
     "year": "2026",
     "image": "images/transferlink.png",
